@@ -5,12 +5,31 @@ const express = require('express')
 const router = express.Router()
 
 // 2.配置路由
-router.get('/foo',(req,res) => {
-  res.send('get /foo')
+router.post('/users/login',async(req, res, next) => {
+  try {
+    // 处理请求
+    res.send('post /users/login')
+  } catch (err) {
+    next(err)
+  }
 })
 
-router.post('/foo',(req,res) => {
-  res.send('post /foo')
+router.get('/users',async(req, res, next) => {
+  try {
+    // 处理请求
+    res.send('post /users')
+  } catch (err) {
+    next(err)
+  }
+})
+
+// 更新当前用户
+router.get('/user',async (req,res,next) => {
+  try {
+    res.send('get /user')
+  } catch(err) {
+    next(err)
+  }
 })
 
 // 3.导出路由实例
